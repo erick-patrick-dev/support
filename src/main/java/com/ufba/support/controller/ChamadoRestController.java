@@ -25,13 +25,26 @@ public class ChamadoRestController {
     //Buscar todos os chamados
     @GetMapping
     public ResponseEntity<Iterable<Chamado>> buscarTodos(){
-        return null;
+        return ResponseEntity.ok(chamadoRepository.buscarTodos());
     }
 
     //Buscar chamado por id
     @GetMapping("/{id}")
     public ResponseEntity<Chamado> buscarPorId(@PathVariable Long id){
-        return null;
+        if (id <= 0) {
+
+            return ResponseEntity.badRequest().build();
+
+        } else if (chamadoRepository.buscarPorId(id) == null) {
+
+            return ResponseEntity.notFound().build();
+
+        } else {
+
+            return ResponseEntity.ok(chamadoRepository.buscarPorId(id));
+            
+        }
+
     }
 
     //filtrar por setor

@@ -41,7 +41,16 @@ public class ChamadoRepository {
         return chamados;
     }
 
-
+    // Método para buscar um chamado por ID
+    public Chamado buscarPorId(long id) {
+        for (Chamado chamado : chamados) {
+            if (chamado.getId() == id) {
+                return chamado;
+            }
+        }
+        return null;
+    }
 
     
+
 }
