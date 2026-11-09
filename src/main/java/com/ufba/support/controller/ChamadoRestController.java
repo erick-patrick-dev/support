@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ufba.support.model.Chamado;
 import com.ufba.support.model.Prioridade;
+import com.ufba.support.model.Status;
 import com.ufba.support.repository.ChamadoRepository;
 
 @RestController
@@ -87,13 +88,29 @@ public class ChamadoRestController {
     // Buscar pelo titulo
     @GetMapping ("/busca")
     public ResponseEntity<Iterable<Chamado>> buscarPorTitulo(@RequestParam String texto){
-        return null;
+        var chamadosFiltrados = chamadoRepository.buscarTodos().stream()
+                .filter(chamado -> chamado.getTitulo().toLowerCase().contains(texto.toLowerCase()))
+                .toList();
+
+        if (chamadosFiltrados.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(chamadosFiltrados);
+        }
     }
 
-    // Listar chamados de alta prioridade não resolvidos
+    // Listar chamados de alta prioridade não resolvidos TESTE
     @GetMapping("/criticos")
     public ResponseEntity<Iterable<Chamado>> buscarCriticos(){
-        return null;
+        var chamadosFiltrados = chamadoRepository.buscarTodos().stream()
+                .filter(chamado -> chamado.getPrioridade() == Prioridade.ALTA && chamado.getStatus() == Status.ABERTO)
+                .toList();
+
+        if (chamadosFiltrados.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(chamadosFiltrados);
+        }
     }
 
     // Retornar a quantidade de chamados por status EM TESTE
