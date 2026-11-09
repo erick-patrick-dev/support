@@ -12,20 +12,20 @@ import com.ufba.support.model.Status;
 @Repository 
 public class ChamadoRepository {
     private List<Chamado> chamados = new ArrayList<>();
-    private long contadorId = 0;
+    private long contadorId = 1;
 
     public ChamadoRepository() {
         // Populando com 10 chamados iniciais de exemplo
-        salvar(new Chamado(generateID(), "Erro na impressora HP", "Ana Silva", "TI", Prioridade.ALTA, Status.ABERTO));
-        salvar(new Chamado(generateID(), "Lentidão na rede Wi-Fi", "Carlos Souza", "Redes", Prioridade.MEDIA, Status.EM_ANDAMENTO));
-        salvar(new Chamado(generateID(), "Troca de toner", "Mariana Costa", "TI", Prioridade.BAIXA, Status.RESOLVIDO));
-        salvar(new Chamado(generateID(), "Acesso ao sistema financeiro", "João Pedro", "Financeiro", Prioridade.ALTA, Status.ABERTO));
-        salvar(new Chamado(generateID(), "Computador não liga", "Fernanda Lima", "RH", Prioridade.ALTA, Status.EM_ANDAMENTO));
-        salvar(new Chamado(generateID(), "Instalação de software de planilha", "Lucas Mendes", "Financeiro", Prioridade.BAIXA, Status.ABERTO));
-        salvar(new Chamado(generateID(), "Queda de conexão VPN", "Bruna Oliveira", "Redes", Prioridade.ALTA, Status.ABERTO));
-        salvar(new Chamado(generateID(), "Erro de senha no e-mail corporativo", "Ricardo Alves", "TI", Prioridade.MEDIA, Status.RESOLVIDO));
-        salvar(new Chamado(generateID(), "Configuração de projetor", "Patrícia Lima", "Marketing", Prioridade.BAIXA, Status.RESOLVIDO));
-        salvar(new Chamado(generateID(), "Manutenção preventiva em nobreak", "Marcos Vinicius", "Infraestrutura", Prioridade.MEDIA, Status.EM_ANDAMENTO));
+        salvar(new Chamado(null, "Erro na impressora HP", "Ana Silva", "TI", Prioridade.ALTA, Status.ABERTO));
+        salvar(new Chamado(null, "Lentidão na rede Wi-Fi", "Carlos Souza", "Redes", Prioridade.MEDIA, Status.EM_ANDAMENTO));
+        salvar(new Chamado(null, "Troca de toner", "Mariana Costa", "TI", Prioridade.BAIXA, Status.RESOLVIDO));
+        salvar(new Chamado(null, "Acesso ao sistema financeiro", "João Pedro", "Financeiro", Prioridade.ALTA, Status.ABERTO));
+        salvar(new Chamado(null, "Computador não liga", "Fernanda Lima", "RH", Prioridade.ALTA, Status.EM_ANDAMENTO));
+        salvar(new Chamado(null, "Instalação de software de planilha", "Lucas Mendes", "Financeiro", Prioridade.BAIXA, Status.ABERTO));
+        salvar(new Chamado(null, "Queda de conexão VPN", "Bruna Oliveira", "Redes", Prioridade.ALTA, Status.ABERTO));
+        salvar(new Chamado(null, "Erro de senha no e-mail corporativo", "Ricardo Alves", "TI", Prioridade.MEDIA, Status.RESOLVIDO));
+        salvar(new Chamado(null, "Configuração de projetor", "Patrícia Lima", "Marketing", Prioridade.BAIXA, Status.RESOLVIDO));
+        salvar(new Chamado(null, "Manutenção preventiva em nobreak", "Marcos Vinicius", "Infraestrutura", Prioridade.MEDIA, Status.EM_ANDAMENTO));
     }
 
     public Long generateID() {

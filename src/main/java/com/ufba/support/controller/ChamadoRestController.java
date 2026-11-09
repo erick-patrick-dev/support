@@ -50,7 +50,7 @@ public class ChamadoRestController {
     // Filtrar por setor PRONTO
     @GetMapping("/setor")
     public ResponseEntity<Iterable<Chamado>> buscarPorSetor(@RequestParam String nome){
-        
+
         var chamadosFiltrados = chamadoRepository.buscarTodos().stream()
                 .filter(chamado -> chamado.getSetor().equalsIgnoreCase(nome))
                 .toList();
@@ -92,7 +92,7 @@ public class ChamadoRestController {
     public ResponseEntity<Chamado> inserir(@RequestBody Chamado chamado){
         Chamado savedChamado = chamadoRepository.salvar(chamado);
         
-        return ResponseEntity.ok(savedChamado);
+        return ResponseEntity.created(null).body(savedChamado);
     }
 
     
