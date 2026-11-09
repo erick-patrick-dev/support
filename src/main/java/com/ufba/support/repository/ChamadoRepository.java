@@ -1,7 +1,9 @@
 package com.ufba.support.repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -52,6 +54,27 @@ public class ChamadoRepository {
             }
         }
         return null;
+    }
+
+    public Map<String, Long> resumoChamados() {
+        var abertos = this.chamados.stream()
+                .filter(chamado -> chamado.getStatus() == Status.ABERTO)
+                .count();
+
+        var emAndamento = this.chamados.stream()
+                .filter(chamado -> chamado.getStatus() == Status.EM_ANDAMENTO)
+                .count();
+        
+        var resolvidos = this.chamados.stream()
+                .filter(chamado -> chamado.getStatus() == Status.RESOLVIDO)
+                .count();
+        
+        Map<String, Long> resumo = new HashMap<>();
+        resumo.put("Abertos", abertos);
+        resumo.put("Em Andamento", emAndamento);
+        resumo.put("Resolvidos", resolvidos);
+
+        return resumo;
     }
 
 

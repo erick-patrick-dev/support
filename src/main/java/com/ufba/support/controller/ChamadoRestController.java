@@ -1,5 +1,7 @@
 package com.ufba.support.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ufba.support.model.Chamado;
+import com.ufba.support.model.Prioridade;
 import com.ufba.support.repository.ChamadoRepository;
 
 @RestController
@@ -65,8 +68,20 @@ public class ChamadoRestController {
 
     // Filtrar por prioridade
     @GetMapping("/prioridade")
-    public ResponseEntity<Iterable<Chamado>> buscarPorPrioridade(@RequestParam String prioridade){
-        return null;
+    public ResponseEntity<Iterable<Chamado>> buscarPorPrioridade(@RequestParam String nivel){
+
+        Prioridade nivelEnum = Prioridade.valueOf(nivel.toUpperCase());
+
+        var chamadosFiltrados = chamadoRepository.buscarTodos().stream()
+                .filter(chamado -> chamado.getPrioridade().equals(nivelEnum))
+                .toList();
+
+        if (chamadosFiltrados.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(chamadosFiltrados);
+        }
+
     }
 
     // Buscar pelo titulo
@@ -81,10 +96,10 @@ public class ChamadoRestController {
         return null;
     }
 
-    // Retornar a quantidade de chamados por status
+    // Retornar a quantidade de chamados por status EM TESTE
     @GetMapping("/resumo")
-    public ResponseEntity<String> resumoChamados(){
-        return null;
+    public ResponseEntity<Map<String, Long>> resumoChamados(){
+        return ResponseEntity.ok(chamadoRepository.resumoChamados());
     }
 
     // Cadastrar, atualizar e deletar chamados PRONTO
