@@ -32,6 +32,9 @@ public class ChamadoRepository {
 
     // Método para salvar um chamado
     public Chamado salvar(Chamado chamado) {
+        if (chamado.getId() <= 0) {
+            chamado.setId(generateID());
+        }
         chamados.add(chamado);
         return chamado; 
     }
@@ -51,6 +54,6 @@ public class ChamadoRepository {
         return null;
     }
 
-    
+
 
 }

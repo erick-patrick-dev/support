@@ -18,6 +18,10 @@ public class Chamado {
         this.status = status;
     }
 
+    public Chamado() {
+        //
+    }
+
 
     // ID
     public long getId() {

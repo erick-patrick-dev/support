@@ -80,7 +80,9 @@ public class ChamadoRestController {
     // Cadastrar, atualizar e deletar chamados
     @PostMapping
     public ResponseEntity<Chamado> inserir(@RequestBody Chamado chamado){
-        return null;
+        Chamado savedChamado = chamadoRepository.salvar(chamado);
+        
+        return ResponseEntity.ok(savedChamado);
     }
 
     @PutMapping("/{id}")
