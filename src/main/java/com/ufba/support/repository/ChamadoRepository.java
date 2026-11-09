@@ -10,7 +10,7 @@ import com.ufba.support.model.Chamado;
 @Repository 
 public class ChamadoRepository {
     private List<Chamado> chamados = new ArrayList<>();
-    private long contadorId = 1;
+    private long contadorId = 0;
 
     public ChamadoRepository() {
         // Populando com 10 chamados iniciais de exemplo
@@ -26,15 +26,13 @@ public class ChamadoRepository {
         salvar(new Chamado(generateID(), "Manutenção preventiva em nobreak", "Marcos Vinicius", "Infraestrutura", "MEDIA", "EM_ANDAMENTO"));
     }
 
-    public long generateID() {
+    public Long generateID() {
         return contadorId++;
     }
 
     // Método para salvar um chamado
     public Chamado salvar(Chamado chamado) {
-        if (chamado.getId() <= 0) {
-            chamado.setId(generateID());
-        }
+        chamado.setId(generateID());
         chamados.add(chamado);
         return chamado; 
     }

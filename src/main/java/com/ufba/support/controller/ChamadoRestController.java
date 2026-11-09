@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+//import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,13 +22,13 @@ public class ChamadoRestController {
     @Autowired
     private ChamadoRepository chamadoRepository;
 
-    //Buscar todos os chamados
+    //Buscar todos os chamados PRONTO
     @GetMapping
     public ResponseEntity<Iterable<Chamado>> buscarTodos(){
         return ResponseEntity.ok(chamadoRepository.buscarTodos());
     }
 
-    //Buscar chamado por id
+    //Buscar chamado por id PRONTO
     @GetMapping("/{id}")
     public ResponseEntity<Chamado> buscarPorId(@PathVariable Long id){
         if (id <= 0) {
@@ -77,7 +77,7 @@ public class ChamadoRestController {
         return null;
     }
 
-    // Cadastrar, atualizar e deletar chamados
+    // Cadastrar, atualizar e deletar chamados PRONTO
     @PostMapping
     public ResponseEntity<Chamado> inserir(@RequestBody Chamado chamado){
         Chamado savedChamado = chamadoRepository.salvar(chamado);
@@ -85,13 +85,14 @@ public class ChamadoRestController {
         return ResponseEntity.ok(savedChamado);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Chamado> atualizar(@PathVariable Long id, @RequestBody Chamado chamado){
-        return null;
-    }
-
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id){
         return null;
     }
+
+    // @PutMapping("/{id}")
+    // public ResponseEntity<Chamado> atualizar(@PathVariable Long id, @RequestBody Chamado chamado){
+    //     return null;
+    // }
 }

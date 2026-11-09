@@ -1,7 +1,7 @@
 package com.ufba.support.model;
 
 public class Chamado {
-    private long id;
+    private Long id;
     private String titulo;
     private String solicitante;
     private String setor;
@@ -9,7 +9,7 @@ public class Chamado {
     private String prioridade;
     private String status;
 
-    public Chamado(long id, String titulo, String solicitante, String setor, String prioridade, String status) {
+    public Chamado(Long id, String titulo, String solicitante, String setor, String prioridade, String status) {
         this.id = id;
         this.titulo = titulo;
         this.solicitante = solicitante;
@@ -24,11 +24,11 @@ public class Chamado {
 
 
     // ID
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
