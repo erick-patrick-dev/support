@@ -47,19 +47,29 @@ public class ChamadoRestController {
 
     }
 
-    //filtrar por setor
+    // Filtrar por setor PRONTO
     @GetMapping("/setor")
-    public ResponseEntity<Iterable<Chamado>> buscarPorSetor(@RequestParam String setor){
-        return null;
+    public ResponseEntity<Iterable<Chamado>> buscarPorSetor(@RequestParam String nome){
+        
+        var chamadosFiltrados = chamadoRepository.buscarTodos().stream()
+                .filter(chamado -> chamado.getSetor().equalsIgnoreCase(nome))
+                .toList();
+
+        if (chamadosFiltrados.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(chamadosFiltrados);
+        }
+
     }
 
-    //filtrar por prioridade
+    // Filtrar por prioridade
     @GetMapping("/prioridade")
     public ResponseEntity<Iterable<Chamado>> buscarPorPrioridade(@RequestParam String prioridade){
         return null;
     }
 
-    //buscar pelo titulo
+    // Buscar pelo titulo
     @GetMapping ("/busca")
     public ResponseEntity<Iterable<Chamado>> buscarPorTitulo(@RequestParam String texto){
         return null;
