@@ -127,10 +127,16 @@ public class ChamadoRestController {
         return ResponseEntity.created(null).body(savedChamado);
     }
 
-    
+    // Removendo um chamado por ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id){
-        return null;
+
+        boolean deleted = chamadoRepository.deletarPorId(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // @PutMapping("/{id}")

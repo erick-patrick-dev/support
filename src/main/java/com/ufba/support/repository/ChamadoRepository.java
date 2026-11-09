@@ -56,6 +56,16 @@ public class ChamadoRepository {
         return null;
     }
 
+    // Método para deletar um chamado por ID
+    public boolean deletarPorId(long id) {
+        Chamado chamado = buscarPorId(id);
+        if (chamado != null) {
+            chamados.remove(chamado);
+            return true;
+        }
+        return false;
+    }
+
     public Map<String, Long> resumoChamados() {
         var abertos = this.chamados.stream()
                 .filter(chamado -> chamado.getStatus() == Status.ABERTO)
