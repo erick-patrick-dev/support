@@ -9,6 +9,15 @@ public class Chamado {
     private String prioridade;
     private String status;
 
+    public Chamado(long id, String titulo, String solicitante, String setor, String prioridade, String status) {
+        this.id = id;
+        this.titulo = titulo;
+        this.solicitante = solicitante;
+        this.setor = setor;
+        this.prioridade = prioridade;
+        this.status = status;
+    }
+
 
     // ID
     public long getId() {

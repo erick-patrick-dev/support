@@ -1,5 +1,6 @@
 package com.ufba.support.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ufba.support.model.Chamado;
+import com.ufba.support.repository.ChamadoRepository;
 
 @RestController
 @RequestMapping("chamados")
 public class ChamadoRestController {
+
+    @Autowired
+    private ChamadoRepository chamadoRepository;
 
     //Buscar todos os chamados
     @GetMapping
