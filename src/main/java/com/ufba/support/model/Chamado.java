@@ -6,10 +6,10 @@ public class Chamado {
     private String solicitante;
     private String setor;
 
-    private String prioridade;
-    private String status;
+    private Prioridade prioridade;
+    private Status status;
 
-    public Chamado(Long id, String titulo, String solicitante, String setor, String prioridade, String status) {
+    public Chamado(Long id, String titulo, String solicitante, String setor, Prioridade prioridade, Status status) {
         this.id = id;
         this.titulo = titulo;
         this.solicitante = solicitante;
@@ -64,21 +64,21 @@ public class Chamado {
 
     // Prioridade
 
-    public String getPrioridade() {
+    public Prioridade getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(String prioridade) {
+    public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
     }
 
     // Status
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
