@@ -35,14 +35,14 @@ Porque os dados estão sendo armazenados exclusivamente em memória RAM (utiliza
 * **Explicação:** Retorna a lista completa contendo os chamados iniciais cadastrados em memória.
 
 ### Teste 2: Consultar chamado por ID (Sucesso)
-* **Requisição:** `GET /chamados/1`
+* **Requisição:** `GET /chamados/10`
 * **Resposta HTTP:** `200 OK`
 <img width="1175" height="948" alt="image" src="https://github.com/user-attachments/assets/cd074361-a7cc-4ce5-ac38-ffb973a03a13" />
 
 * **Explicação:** Busca e retorna o chamado específico cujo ID seja igual a 1.
 
 ### Teste 3: Consultar chamado por ID (Sem correspondência / Não encontrado)
-* **Requisição:** `GET /chamados/999`
+* **Requisição:** `GET /chamados/45`
 * **Resposta HTTP:** `404 Not Found`
 <img width="1179" height="943" alt="image" src="https://github.com/user-attachments/assets/7765ebee-0427-4dff-90fc-3e3428d7b158" />
 
@@ -50,7 +50,7 @@ Porque os dados estão sendo armazenados exclusivamente em memória RAM (utiliza
 * **Explicação:** Demonstra o comportamento da API quando é buscado um ID que não existe na lista em memória.
 
 ### Teste 4: Filtrar chamados por setor
-* **Requisição:** `GET /chamados/setor?nome=financeiro`
+* **Requisição:** `GET /chamados/setor?nome=TI`
 * **Resposta HTTP:** `200 OK`
 <img width="1182" height="929" alt="image" src="https://github.com/user-attachments/assets/bea54367-8fd1-4e5e-bfe6-1dce29152bdb" />
 
@@ -58,7 +58,7 @@ Porque os dados estão sendo armazenados exclusivamente em memória RAM (utiliza
 * **Explicação:** Utiliza Streams do Java para filtrar e retornar apenas os chamados pertencentes ao setor financeiro (case-insensitive).
 
 ### Teste 5: Filtrar chamados por prioridade
-* **Requisição:** `GET /chamados/prioridade?nivel=ALTA`
+* **Requisição:** `GET /chamados/prioridade?nivel=baiXa`
 * **Resposta HTTP:** `200 OK`
 <img width="1185" height="937" alt="image" src="https://github.com/user-attachments/assets/fa6459c5-65b7-4a9f-a4b8-a63c72ad5a31" />
 
@@ -66,7 +66,7 @@ Porque os dados estão sendo armazenados exclusivamente em memória RAM (utiliza
 * **Explicação:** Filtra os registros comparando o nível de prioridade informado na query string.
 
 ### Teste 6: Buscar chamados por termo no título
-* **Requisição:** `GET /chamados/busca?texto=impressora`
+* **Requisição:** `GET /chamados/busca?texto=impRessora`
 * **Resposta HTTP:** `200 OK`
 <img width="1185" height="947" alt="image" src="https://github.com/user-attachments/assets/ba21ab3c-4358-41bc-8c5d-d7d90ab81eef" />
 
