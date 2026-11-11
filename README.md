@@ -39,7 +39,7 @@ Porque os dados estão sendo armazenados exclusivamente em memória RAM (utiliza
 * **Resposta HTTP:** `200 OK`
 <img width="1175" height="948" alt="image" src="https://github.com/user-attachments/assets/cd074361-a7cc-4ce5-ac38-ffb973a03a13" />
 
-* **Explicação:** Busca e retorna o chamado específico cujo ID seja igual a 1.
+* **Explicação:** Busca e retorna o chamado específico cujo ID seja igual a 10.
 
 ### Teste 3: Consultar chamado por ID (Sem correspondência / Não encontrado)
 * **Requisição:** `GET /chamados/45`
